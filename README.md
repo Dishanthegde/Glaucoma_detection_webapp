@@ -1,154 +1,129 @@
-👁️ Glaucoma Detection Web App
-AI-Powered Retinal Image Analysis using CNN + VGG16
+# 👁️ Glaucoma Detection Web App  
+### AI-Powered Retinal Image Analysis using CNN + VGG16
 
-This project is an AI-based web application that detects glaucoma from retinal fundus images.
-Using a hybrid CNN + VGG16 deep learning model, the system predicts whether the uploaded image shows Glaucomatous signs with high accuracy and generates a downloadable PDF medical-style report.
+This project is an AI-based web application that detects **glaucoma from retinal fundus images**.  
+Using a hybrid **CNN + VGG16 deep learning model**, the system predicts whether the uploaded image shows **Glaucomatous** signs with high accuracy and generates a downloadable **PDF medical-style report**.
 
-🚀 Features
-🔍 1. AI-Based Detection
+---
 
-Hybrid CNN + VGG16 model
+## 🚀 Features
 
-Fine-tuned on glaucoma retinal datasets
+### 🔍 **1. AI-Based Glaucoma Detection**
+- Hybrid CNN + VGG16 model  
+- Fine-tuned using retinal fundus dataset  
+- Outputs:
+  - **Classification (Normal / Glaucoma)**
+  - **Confidence score**
+  - **Probability distribution bar chart**
 
-Outputs:
+### 🖼️ **2. Retina Image Upload**
+- JPG/PNG support  
+- Automatic preprocessing  
+  - Resize to 256×256  
+  - Pixel normalization  
 
-Prediction (Glaucoma / Normal)
+### 📝 **3. Auto-Generated PDF Report**
+PDF includes:
+- Uploaded retina image  
+- Prediction result  
+- Confidence  
+- Probability bar chart  
+- AI-generated medical note for the patient  
 
-Confidence score
+### 🌐 **4. Clean Web Interface (Streamlit)**
+- User-friendly UI  
+- Responsive  
+- Mobile + desktop support  
 
-Probability distribution bar chart
+---
 
-🖼️ 2. Image Upload System
+## 🧠 Model Architecture
 
-Upload retina images in JPG/PNG format
+### **Base Model:**  
+- Pre-trained **VGG16** (ImageNet) as the feature extractor
 
-Automatic pre-processing (resize, normalize)
+### **Fine-tuning:**  
+- Last convolution layers retrained on glaucoma dataset  
 
-📝 3. Auto-Generated PDF Report
+### **Custom Layers Added:**  
+- Dense layers  
+- Dropout  
+- Softmax output for 2 classes  
 
-Includes:
+### **Training Setup:**  
+- **Epochs:** 25  
+- **Optimizer:** Adam  
+- **Loss:** Categorical Crossentropy  
+- **Dataset Split:** 70% train / 20% validation / 10% test  
 
-Uploaded image
+---
 
-Diagnosis result
+## 📂 Project Structure
 
-Confidence
-
-Probability bar chart
-
-AI-generated physician-style note
-
-🌐 4. Clean Web Interface (Streamlit)
-
-User-friendly
-
-Responsive
-
-Works on mobile & desktop
-
-🧠 Model Architecture
-Base Model
-
-Pre-trained VGG16 (ImageNet weights)
-
-Used as feature extractor
-
-Custom CNN Layers
-
-Dense layers + Dropout
-
-Softmax output for 2 classes
-
-Training Setup
-
-Epochs: 25
-
-Optimizer: Adam
-
-Loss: Categorical Crossentropy
-
-Dataset Split:
-
-70% Training
-
-20% Validation
-
-10% Testing
-
-🗂️ Project Structure
 📦 Glaucoma_detection_webapp
 │
-├── app.py                        # Main Streamlit application
-├── combine_cnn_model_finetuned.keras   # Trained model (tracked using Git LFS)
-├── requirements.txt              # Python dependencies
-├── style.css                     # Custom styles for UI
-├── README.md                     # Project documentation
-├── images/                       # Assets for UI
-└── reports/                      # Auto-generated PDF reports
+├── app.py # Main Streamlit app
+├── combine_cnn_model_finetuned.keras # Deep learning model (Git LFS)
+├── style.css # UI styling
+├── requirements.txt # Dependencies
+├── README.md # Documentation
+├── images/ # UI assets
+└── reports/ # Generated PDF reports
 
-💻 Installation & Usage
-🔧 1. Clone the Repository
+
+---
+
+## ⚙️ Installation
+
+### 🔧 1. Clone the Repository
+```bash
 git clone https://github.com/Dishanthegde/Glaucoma_detection_webapp.git
 cd Glaucoma_detection_webapp
 
-📦 2. Install Dependencies
 pip install -r requirements.txt
-
-▶️ 3. Run the App
 streamlit run app.py
 
-📘 How It Works (Pipeline)
+```
 
-User uploads a retina image
+🔁 End-to-End Pipeline
 
-Image is preprocessed (resize 256×256, normalize 0-1)
+User uploads retinal fundus image
 
-Model performs prediction using CNN + VGG16
+Image is preprocessed
 
-App visualizes results + probabilities
+Resize 256×256
 
-User downloads an AI-generated PDF report
+Normalize pixel values
 
-📄 Example Output (PDF Report)
+AI model predicts:
 
-The report contains:
+Class (Normal / Glaucoma)
 
-Patient retina image
+Probability & confidence
 
-Prediction
+App displays result + bar chart
 
-Confidence score
+User downloads PDF medical report
 
-Probability bar chart
+📄 PDF Report Includes
 
-AI-generated medical warning
+✔ Uploaded retinal image
+✔ AI prediction result
+✔ Confidence percentage
+✔ Probability chart
+✔ AI-generated medical note
+✔ Timestamp
 
-Timestamp
+⚠️ Medical Disclaimer
 
-📊 Sample Bar Chart
+This tool is not a substitute for professional medical diagnosis.
+It is designed to assist with preliminary screening, not replace an ophthalmologist.
 
-The probability visualization shows confidence for:
+👨‍💻 Developed By
 
-Normal
+Dishant Hegde
+Final Year Project – Glaucoma Detection using AI
 
-Glaucoma
+⭐ Support This Project
 
-Helps users understand how certain the model is.
-
-🌍 Deployment
-
-This project can be deployed using:
-
-✔️ Streamlit Cloud (Easy and Free)
-
-Just push code to GitHub → Deploy with one click at
-https://streamlit.io/cloud
-
-✔️ Local Deployment
-
-Run streamlit run app.py
-
-✔️ Docker (Optional)
-
-Containerize for hospital use or offline devices.
+If you found this useful, please ⭐ star the GitHub repository!
