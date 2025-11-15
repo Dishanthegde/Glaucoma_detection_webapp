@@ -1,31 +1,154 @@
-Glaucoma-Detection-using-CNN Streamlit App
-Link: https://glaucoma-detector.streamlit.app
+👁️ Glaucoma Detection Web App
+AI-Powered Retinal Image Analysis using CNN + VGG16
 
-A deep learning-based glaucoma detection method is being developed in this project. Convolutional neural networks (CNNs), which are trained using publically accessible datasets of fundus images of healthy and glaucomatous eyes, are used in this system to classify images.
+This project is an AI-based web application that detects glaucoma from retinal fundus images.
+Using a hybrid CNN + VGG16 deep learning model, the system predicts whether the uploaded image shows Glaucomatous signs with high accuracy and generates a downloadable PDF medical-style report.
 
-Details
-Step 1:-In this project, we have collected three publicly available datasets namely ACRIMA,DRISTHI-GS amd RIM-ONE.
-Step 2:-We have combined the three datasets to form a Combined dataset.
-Step 3:-Data Augumentation is applied to Combined dataset in order to increase training data and boost the model's performance.
-Step 4:-The combined dataset is split into training, testing, and validation data.
-Step 5:-A Keras CNN model was built and trained using training data.
-Step 6:-The model was evaluated using test data and metrics including accuracy (98%) and precision , recall , and F1-score . For future use, we saved the model file in h5 format.
-Step 7:-Then we built a simple streamlit app for hosting on web.
-Requirements
-To run this project, you need to have the following software installed:
+🚀 Features
+🔍 1. AI-Based Detection
 
-Python 3.8
-Tensorflow 2.12.0
-keras 2.12.0
-plotly-express 0.4.1
-numpy 1.22.4
-pandas 1.5.3
-streamlit 1.21.0
-streamlit_ext 0.1.7
-You can install these packages using pip, by running the following command: pip install tensorflow keras streamlit
+Hybrid CNN + VGG16 model
 
-Usage
-To use our project - go to this link https://glaucoma-detector.streamlit.app
+Fine-tuned on glaucoma retinal datasets
 
-The web app opens up in a new tab. Then you can use it for classifying. That's it!
+Outputs:
 
+Prediction (Glaucoma / Normal)
+
+Confidence score
+
+Probability distribution bar chart
+
+🖼️ 2. Image Upload System
+
+Upload retina images in JPG/PNG format
+
+Automatic pre-processing (resize, normalize)
+
+📝 3. Auto-Generated PDF Report
+
+Includes:
+
+Uploaded image
+
+Diagnosis result
+
+Confidence
+
+Probability bar chart
+
+AI-generated physician-style note
+
+🌐 4. Clean Web Interface (Streamlit)
+
+User-friendly
+
+Responsive
+
+Works on mobile & desktop
+
+🧠 Model Architecture
+Base Model
+
+Pre-trained VGG16 (ImageNet weights)
+
+Used as feature extractor
+
+Custom CNN Layers
+
+Dense layers + Dropout
+
+Softmax output for 2 classes
+
+Training Setup
+
+Epochs: 25
+
+Optimizer: Adam
+
+Loss: Categorical Crossentropy
+
+Dataset Split:
+
+70% Training
+
+20% Validation
+
+10% Testing
+
+🗂️ Project Structure
+📦 Glaucoma_detection_webapp
+│
+├── app.py                        # Main Streamlit application
+├── combine_cnn_model_finetuned.keras   # Trained model (tracked using Git LFS)
+├── requirements.txt              # Python dependencies
+├── style.css                     # Custom styles for UI
+├── README.md                     # Project documentation
+├── images/                       # Assets for UI
+└── reports/                      # Auto-generated PDF reports
+
+💻 Installation & Usage
+🔧 1. Clone the Repository
+git clone https://github.com/Dishanthegde/Glaucoma_detection_webapp.git
+cd Glaucoma_detection_webapp
+
+📦 2. Install Dependencies
+pip install -r requirements.txt
+
+▶️ 3. Run the App
+streamlit run app.py
+
+📘 How It Works (Pipeline)
+
+User uploads a retina image
+
+Image is preprocessed (resize 256×256, normalize 0-1)
+
+Model performs prediction using CNN + VGG16
+
+App visualizes results + probabilities
+
+User downloads an AI-generated PDF report
+
+📄 Example Output (PDF Report)
+
+The report contains:
+
+Patient retina image
+
+Prediction
+
+Confidence score
+
+Probability bar chart
+
+AI-generated medical warning
+
+Timestamp
+
+📊 Sample Bar Chart
+
+The probability visualization shows confidence for:
+
+Normal
+
+Glaucoma
+
+Helps users understand how certain the model is.
+
+🌍 Deployment
+
+This project can be deployed using:
+
+✔️ Streamlit Cloud (Easy and Free)
+
+Just push code to GitHub → Deploy with one click at
+https://streamlit.io/cloud
+
+✔️ Local Deployment
+
+Run streamlit run app.py
+
+✔️ Docker (Optional)
+
+Containerize for hospital use or offline devices.
